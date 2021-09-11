@@ -17,6 +17,15 @@
  </head>
 	
 <body>
+<video   id="vd" controls="controls" name="media" autoplay>
+
+	<source id="v1" src="music/001.mp3" type="audio/mpeg" />
+
+</video>
+
+
+
+
 	<div class="banner_body">
 		<div class="container">
 			<div class="w3ls_logo_nav">
@@ -289,5 +298,15 @@
 	Collect from <a href="https://space.bilibili.com/3904143"  title="B站李化云">B站李化云</a>
 	<a href="https://space.bilibili.com/3904143" title="李化云">李化云</a>
 </div>
+
+<script>
+	$(".resp-tabs-list li").click(function () {
+		//console.log($("#vd")[0].play())
+		$("#vd")[0].play()
+
+
+	})
+
+</script>
 </body>
 </html>
