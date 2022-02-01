@@ -549,8 +549,25 @@ ul.address li ul.address-text li a:hover{
 .agileinfo_map_color_grid_left p a:hover{
 	color:#23D6E7;
 }
+
+
+.zuopin ul{list-style: none;}
+.zuopin ul li{width: 20%;display: inline-block}
+.zuopin ul li img{
+    display: block;
+    margin:0 auto;
+    width: 90%;
+}
+.zuopin ul li h4{
+    line-height: 30px;
+    text-align: center;
+}
+
 /*-----start-responsive-design------*/
 @media (max-width:1366px){
+
+
+
 	.wthree_tab_content {
 		width: 67%;
 	}
@@ -570,7 +587,9 @@ ul.address li ul.address-text li a:hover{
 	}
 }
 @media (max-width:1080px){
-	.wthree_tab_content_pos {
+
+
+    .wthree_tab_content_pos {
 		top: 4%;
 		width: 73%;
 		padding: 1em;
@@ -617,7 +636,8 @@ ul.address li ul.address-text li a:hover{
 	}
 }
 @media (max-width: 991px){
-	.w3ls_logo_nav_left h1 a {
+
+    .w3ls_logo_nav_left h1 a {
 		font-size: 1.2em;
 	}
 	.resp-tab-item {
@@ -678,7 +698,8 @@ ul.address li ul.address-text li a:hover{
 	}
 }
 @media (max-width: 800px){
-	.resp-tab-content {
+
+    .resp-tab-content {
 		padding: 3em 0 0;
 	}
 }
@@ -902,6 +923,21 @@ ul.address li ul.address-text li a:hover{
 	}
 }
 @media (max-width: 384px){
+
+    .zuopin ul{list-style: none;}
+    .zuopin ul li{width: 46%;display: inline-block}
+    .zuopin ul li img{
+        display: block;
+        margin:0 auto;
+        width: 90%;
+    }
+    .zuopin ul li h4{
+        line-height: 30px;
+        text-align: center;
+        font-size: 16px;
+    }
+
+
 	.resp-tab-item {
 		width: 100%;
 		display: block;
