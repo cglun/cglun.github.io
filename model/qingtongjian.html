@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>3D闹钟，bilibili李化云</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <link type="text/css" rel="stylesheet" href="main.css">
+    <meta name="keywords" content="夜黑论坛,贴吧经典版本，贴吧千里眼，贴吧助手,贴吧工具箱，贴吧工具大全，贴吧查询，贴吧查ID，3D闹钟"/>
+    <meta name="description" content="贴吧经典版,致力于打造怀旧的贴吧玩法，贴吧始于2003，兴于2012，衰于2015，因为权限狗太垃圾，导致贴吧口水骂战多，夜黑论坛贴吧经典版本专为
+    贴吧元老而生，在这里没有权限狗，可以畅所欲言，3D闹钟。"/>
+</head>
+
+<body>
+<div id="info">
+
+    <div href=" " target="_blank" rel="noopener">青铜剑  by 李化云</div>
+</div>
+
+<script type="module">
+
+    import * as THREE from '../build/three.module.js';
+
+    import { OrbitControls } from './jsm/controls/OrbitControls.js';
+    import { GLTFLoader } from './jsm/loaders/GLTFLoader.js';
+    import { RGBELoader } from './jsm/loaders/RGBELoader.js';
+    import { RoughnessMipmapper } from './jsm/utils/RoughnessMipmapper.js';
+
+    let camera, scene, renderer;
+
+    init();
+    render();
+
+    function init() {
+
+        const container = document.createElement( 'div' );
+        document.body.appendChild( container );
+
+        camera = new THREE.PerspectiveCamera( 20, window.innerWidth / window.innerHeight, 0.25, 20 );
+        camera.position.set( 0.5, 0.5,4 );
+
+        scene = new THREE.Scene();
+
+        new RGBELoader()
+            .setPath( 'textures/' )
+            .load( '5.hdr', function ( texture ) {
+
+                texture.mapping = THREE.EquirectangularReflectionMapping;
+
+                scene.background = texture;
+                scene.environment = texture;
+
+
+
+                // model
+
+                // use of RoughnessMipmapper is optional
+                const roughnessMipmapper = new RoughnessMipmapper( renderer );
+
+                const loader = new GLTFLoader().setPath( 'models/' );
+                loader.load( 'qingtongjian.glb', function ( gltf ) {
+
+
+                    scene.add( gltf.scene );
+
+                    roughnessMipmapper.dispose();
+
+                    render();
+
+                } );
+
+            } );
+
+        renderer = new THREE.WebGLRenderer( { antialias: true } );
+        renderer.setPixelRatio( window.devicePixelRatio );
+        renderer.setSize( window.innerWidth, window.innerHeight );
+        renderer.toneMapping = THREE.ACESFilmicToneMapping;
+        renderer.toneMappingExposure = 1;
+        renderer.outputEncoding = THREE.sRGBEncoding;
+        container.appendChild( renderer.domElement );
+
+        const controls = new OrbitControls( camera, renderer.domElement );
+        controls.addEventListener( 'change', render ); // use if there is no animation loop
+        controls.minDistance = 2;
+        controls.maxDistance = 10;
+        controls.target.set( 0, 0, - 0.2 );
+        controls.update();
+
+        window.addEventListener( 'resize', onWindowResize );
+
+    }
+
+    function onWindowResize() {
+
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+
+        renderer.setSize( window.innerWidth, window.innerHeight );
+
+        render();
+
+    }
+
+    //
+
+    function render() {
+
+        renderer.render( scene, camera );
+
+    }
+
+    function animation() {
+
+
+
+    }
+
+</script>
+
+</body>
+</html>
