@@ -1,6 +1,6 @@
 {
   "notice": "此程序完全免费，如有人向你售卖，请立即退货 ",
-  private val runnable:Boolean=true,
+    "runnable": true,
   "isUpdate": false,
   "updataUrl":""
 }
