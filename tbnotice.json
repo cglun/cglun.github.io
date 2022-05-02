@@ -1,6 +1,6 @@
 {
   "notice": "此程序完全免费，如有人向你售卖，请立即退货\n李化云 ",
-    "runnable": false,
-  "isUpdate": true,
+    "runnable": true,
+  "isUpdate": false,
   "updataUrl":"https://space.bilibili.com/3904143"
 }
